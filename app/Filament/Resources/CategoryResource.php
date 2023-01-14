@@ -18,7 +18,8 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    public static ?string $label = 'Categorias';
+    public static ?string $label = 'Categoria';
+    public static ?string $pluralLabel = 'Categorias';
     protected static ?string $navigationGroup = 'Notícias';
     protected static ?int $navigationSort = 1;
 

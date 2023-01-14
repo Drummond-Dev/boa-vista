@@ -18,7 +18,8 @@ class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
 
-    public static ?string $label = 'Contatos';
+    public static ?string $label = 'Contato';
+    public static ?string $plauralLabel = 'Contatos';
     protected static ?string $navigationGroup = 'Prefeitura';
     protected static ?int $navigationSort = 3;
 

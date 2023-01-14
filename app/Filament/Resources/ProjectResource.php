@@ -18,7 +18,8 @@ class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
 
-    public static ?string $label = 'Projetos';
+    public static ?string $label = 'Projeto';
+    public static ?string $pluralLabel = 'Projetos';
     protected static ?string $navigationGroup = 'Canal do Cidadão';
     protected static ?int $navigationSort = 1;
 

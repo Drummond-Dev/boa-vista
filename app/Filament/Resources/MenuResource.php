@@ -19,6 +19,7 @@ class MenuResource extends Resource
     protected static ?string $model = Menu::class;
 
     public static ?string $label = 'Navegação';
+    public static ?string $pluralLabel = 'Navegações';
     protected static ?string $navigationGroup = 'Navegação';
     protected static ?int $navigationSort = 1;
 

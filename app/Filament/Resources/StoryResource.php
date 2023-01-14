@@ -18,7 +18,8 @@ class StoryResource extends Resource
 {
     protected static ?string $model = Story::class;
 
-    public static ?string $label = 'Histórias';
+    public static ?string $label = 'História';
+    public static ?string $pluralLabel = 'Histórias';
     protected static ?string $navigationGroup = 'Canal do Cidadão';
     protected static ?int $navigationSort = 2;
 

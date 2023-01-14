@@ -20,6 +20,7 @@ class StaffResource extends Resource
     protected static ?string $model = Staff::class;
 
     public static ?string $label = 'Pessoal';
+    public static ?string $pluralLabel = 'Pessoas';
     protected static ?string $navigationGroup = 'Prefeitura';
     protected static ?int $navigationSort = 2;
 

@@ -17,7 +17,8 @@ class ResponsibilityResource extends Resource
 {
     protected static ?string $model = Responsibility::class;
 
-    public static ?string $label = 'Cargos';
+    public static ?string $label = 'Cargo';
+    public static ?string $pluralLabel = 'Cargos';
     protected static ?string $navigationGroup = 'Prefeitura';
     protected static ?int $navigationSort = 1;
 

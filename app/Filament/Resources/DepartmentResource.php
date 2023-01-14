@@ -19,7 +19,8 @@ class DepartmentResource extends Resource
 {
     protected static ?string $model = Department::class;
 
-    public static ?string $label = 'Departamentos';
+    public static ?string $label = 'Departamento';
+    public static ?string $plauralLabel = 'Departamentos';
     protected static ?string $navigationGroup = 'Prefeitura';
     protected static ?int $navigationSort = 4;
 

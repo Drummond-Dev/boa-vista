@@ -20,7 +20,8 @@ class NewspaperResource extends Resource
 {
     protected static ?string $model = Newspaper::class;
 
-    public static ?string $label = 'Notícias';
+    public static ?string $label = 'Notícia';
+    public static ?string $pluralLabel = 'Notícias';
     protected static ?string $navigationGroup = 'Notícias';
     protected static ?int $navigationSort = 2;
 

@@ -17,7 +17,8 @@ class BusScheduleResource extends Resource
 {
     protected static ?string $model = BusSchedule::class;
 
-    public static ?string $label = 'Frotas e Horários';
+    public static ?string $label = 'Horário';
+    public static ?string $pluralLabel = 'Horário';
     protected static ?string $navigationGroup = 'Canal do Cidadão';
     protected static ?int $navigationSort = 4;
 

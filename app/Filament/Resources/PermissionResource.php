@@ -20,7 +20,8 @@ class PermissionResource extends Resource
 {
     protected static ?string $model = Permission::class;
 
-    public static ?string $label = 'Permissões';
+    public static ?string $label = 'Permissão';
+    public static ?string $pluralLabel = 'Permissões';
     protected static ?string $navigationGroup = 'Administrativo';
     protected static ?int $navigationSort = 3;
 
