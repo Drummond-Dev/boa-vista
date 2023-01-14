@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Filament\Resources\BusScheduleResource\Pages;
+
+use App\Filament\Resources\BusScheduleResource;
+use Filament\Pages\Actions;
+use Filament\Resources\Pages\CreateRecord;
+
+class CreateBusSchedule extends CreateRecord
+{
+    protected static string $resource = BusScheduleResource::class;
+}
