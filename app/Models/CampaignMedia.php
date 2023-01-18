@@ -4,22 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Campaign extends Model
+class CampaignMedia extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'slug',
-        'sort_order',
+        'campaign_id',
+        'name',
     ];
 
-    public function medias(): HasMany
+    public function campaign(): BelongsTo
     {
-        return $this->hasMany(
-            related: CampaignMedia::class,
+        return $this->belongsTo(
+            related: Campaign::class,
             foreignKey: 'campaign_id',
         );
     }

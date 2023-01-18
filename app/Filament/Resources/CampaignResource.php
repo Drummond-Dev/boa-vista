@@ -37,13 +37,17 @@ class CampaignResource extends Resource
                     ->reactive()
                     ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state)))
                     ->maxLength(255),
+                Forms\Components\TextInput::make('slug')
+                    ->disabled()
+                    ->required(),
                 Forms\Components\Card::make()
                     ->schema([
                         Forms\Components\Repeater::make('image')
                             ->label('Imagens do carrossel')
                             ->createItemButtonLabel('Adicionar nova imagem')
+                            ->relationship('medias')
                             ->schema([
-                                Forms\Components\FileUpload::make('image')
+                                Forms\Components\FileUpload::make('name')
                                     ->label('Imagem')
                                     ->directory('campaigns')
                                     ->image()
@@ -55,6 +59,7 @@ class CampaignResource extends Resource
                             ->helperText('_É necessário ter duas ou mais imagens no carrossel._')
                     ]),
                 Forms\Components\TextInput::make('sort_order')
+                    ->default(1)
                     ->numeric()
                     ->required()
                     ->maxLength(255)
@@ -66,10 +71,10 @@ class CampaignResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')
-                    ->label('Imagem')
-                    ->width(50)
-                    ->height(50),
+                // Tables\Columns\ImageColumn::make('campaign_media.name')
+                //     ->label('Imagem')
+                //     ->width(50)
+                //     ->height(50),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título')
                     ->words(10)

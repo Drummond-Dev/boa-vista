@@ -31,11 +31,16 @@ class BusScheduleResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('pdf_file')
+                Forms\Components\FileUpload::make('pdf_file')
                     ->required()
-                    ->maxLength(255),
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->preserveFilenames()
+                    ->directory('pdf')
+                    ->helperText('_Só são permitidos arquivos PDF._'),
                 Forms\Components\TextInput::make('sort_order')
                     ->required()
+                    ->numeric()
+                    ->default(1)
                     ->maxLength(255),
             ]);
     }
@@ -44,19 +49,21 @@ class BusScheduleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('pdf_file'),
-                Tables\Columns\TextColumn::make('sort_order'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                Tables\Columns\TextColumn::make('title')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Título'),
+                Tables\Columns\TextColumn::make('sort_order')
+                    ->label('Ordem')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

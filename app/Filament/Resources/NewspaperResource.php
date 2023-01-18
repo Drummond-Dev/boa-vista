@@ -74,7 +74,7 @@ class NewspaperResource extends Resource
                     ->fileAttachmentsDirectory('newspaper')
                     ->disableToolbarButtons(['codeBlock'])
                     ->columnSpan(2)
-                    ->helperText('_Pode iserir imagens entre os parágrafos. Basta arrastar a imagem do computador para o local onde quer que a imagem fique._'),
+                    ->helperText('_Pode iserir imagens entre os parágrafos, basta arrastar a imagem do computador para o local onde quer que a imagem fique._'),
             ]);
     }
 

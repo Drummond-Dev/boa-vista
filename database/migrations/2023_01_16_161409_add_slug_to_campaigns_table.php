@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('campaigns', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('sort_order')->default(0);
-            $table->timestamps();
+        Schema::table('campaigns', function (Blueprint $table) {
+            $table->string('slug')->after('title')->unique();
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campaigns');
+        Schema::table('campaigns', function (Blueprint $table) {
+            $table->dropColumn('slug');
+        });
     }
 };

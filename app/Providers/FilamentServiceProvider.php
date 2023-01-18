@@ -51,6 +51,7 @@ class FilamentServiceProvider extends ServiceProvider
             Filament::registerNavigationGroups([
                 'Prefeitura',
                 'Canal do Cidadão',
+                'Cultura',
                 'Notícias',
                 'Navegação',
                 'Administrativo',

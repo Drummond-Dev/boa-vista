@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('campaigns', function (Blueprint $table) {
+        Schema::create('culture_bvs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('sort_order')->default(0);
+            $table->string('slug');
+            $table->longText('text');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campaigns');
+        Schema::dropIfExists('culture_bvs');
     }
 };

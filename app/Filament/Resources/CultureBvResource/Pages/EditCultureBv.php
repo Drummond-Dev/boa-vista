@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\BusScheduleResource\Pages;
+namespace App\Filament\Resources\CultureBvResource\Pages;
 
-use App\Filament\Resources\BusScheduleResource;
+use App\Filament\Resources\CultureBvResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditBusSchedule extends EditRecord
+class EditCultureBv extends EditRecord
 {
-    protected static string $resource = BusScheduleResource::class;
+    protected static string $resource = CultureBvResource::class;
 
     protected function getActions(): array
     {
