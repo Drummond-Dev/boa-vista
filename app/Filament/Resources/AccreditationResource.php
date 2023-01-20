@@ -4,26 +4,26 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\CultureBv;
 use Illuminate\Support\Str;
 use Filament\Resources\Form;
+use App\Models\Accreditation;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\CultureBvResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\CultureBvResource\RelationManagers;
+use App\Filament\Resources\AccreditationResource\Pages;
+use App\Filament\Resources\AccreditationResource\RelationManagers;
 
-class CultureBvResource extends Resource
+class AccreditationResource extends Resource
 {
-    protected static ?string $model = CultureBv::class;
+    protected static ?string $model = Accreditation::class;
 
-    public static ?string $label = 'Cultura BV';
-    public static ?string $pluralLabel = 'Cultura BV';
+    public static ?string $label = 'Credenciamento';
+    public static ?string $pluralLabel = 'Credenciamento';
     protected static ?string $navigationGroup = 'Cultura';
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 3;
 
-    protected static ?string $navigationIcon = 'heroicon-o-library';
+    protected static ?string $navigationIcon = 'heroicon-o-identification';
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -32,20 +32,40 @@ class CultureBvResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->label('Título')
                     ->required()
                     ->reactive()
                     ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state)))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->disabled()
-                    ->required(),
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\MarkdownEditor::make('text')
+                    ->label('Texto')
                     ->required()
                     ->fileAttachmentsVisibility('public')
                     ->fileAttachmentsDirectory('culture')
                     ->disableToolbarButtons(['codeBlock'])
                     ->columnSpanFull()
                     ->helperText('_Pode iserir imagens entre os parágrafos, basta arrastar a imagem do computador para o local onde quer que a imagem fique._'),
+                Forms\Components\Card::make()
+                    ->schema([
+                        Forms\Components\Repeater::make('image')
+                            ->label('Documentos')
+                            ->createItemButtonLabel('Adicionar nova imagem')
+                            ->relationship('medias')
+                            ->schema([
+                                Forms\Components\FileUpload::make('name')
+                                    ->label('Documento')
+                                    ->directory('accreditations')
+                                    ->acceptedFileTypes(['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
+                                    ->required()
+                                    ->columnSpan(2),
+                            ])
+                            ->defaultItems(1)
+                            ->columnSpanFull()
+                    ]),
             ]);
     }
 
@@ -53,14 +73,13 @@ class CultureBvResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título')
                     ->sortable()
                     ->searchable(),
-                // Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('text')
-                    ->label('Texto')
-                    ->words(10),
             ])
             ->filters([
                 //
@@ -84,9 +103,9 @@ class CultureBvResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCultureBvs::route('/'),
-            'create' => Pages\CreateCultureBv::route('/create'),
-            'edit' => Pages\EditCultureBv::route('/{record}/edit'),
+            'index' => Pages\ListAccreditations::route('/'),
+            'create' => Pages\CreateAccreditation::route('/create'),
+            'edit' => Pages\EditAccreditation::route('/{record}/edit'),
         ];
     }
 

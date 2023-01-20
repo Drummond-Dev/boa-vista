@@ -21,7 +21,7 @@ class CultureResource extends Resource
     public static ?string $label = 'Cultura';
     public static ?string $pluralLabel = 'Cultura';
     protected static ?string $navigationGroup = 'Cultura';
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 1;
 
     protected static ?string $navigationIcon = 'heroicon-o-library';
 
