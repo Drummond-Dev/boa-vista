@@ -6,24 +6,24 @@ use Filament\Forms;
 use Filament\Tables;
 use Illuminate\Support\Str;
 use Filament\Resources\Form;
-use App\Models\Accreditation;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use App\Models\AccreditationBands;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\AccreditationResource\Pages;
-use App\Filament\Resources\AccreditationResource\RelationManagers;
+use App\Filament\Resources\AccreditationBandsResource\Pages;
+use App\Filament\Resources\AccreditationBandsResource\RelationManagers;
 
-class AccreditationResource extends Resource
+class AccreditationBandsResource extends Resource
 {
-    protected static ?string $model = Accreditation::class;
+    protected static ?string $model = AccreditationBands::class;
 
-    public static ?string $label = 'Credenciamento Cultural';
-    public static ?string $pluralLabel = 'Credenciamento Cultural';
+    public static ?string $label = 'Credenciamento de Banda';
+    public static ?string $pluralLabel = 'Credenciamento de Bandas';
     protected static ?string $navigationGroup = 'Cultura';
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 4;
 
-    protected static ?string $navigationIcon = 'heroicon-o-identification';
+    protected static ?string $navigationIcon = 'heroicon-o-volume-up';
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -49,23 +49,14 @@ class AccreditationResource extends Resource
                     ->disableToolbarButtons(['codeBlock'])
                     ->columnSpanFull()
                     ->helperText('_Pode iserir imagens entre os parágrafos, basta arrastar a imagem do computador para o local onde quer que a imagem fique._'),
-                Forms\Components\Card::make()
-                    ->schema([
-                        Forms\Components\Repeater::make('image')
-                            ->label('Documentos')
-                            ->createItemButtonLabel('Adicionar nova imagem')
-                            ->relationship('medias')
-                            ->schema([
-                                Forms\Components\FileUpload::make('name')
-                                    ->label('Documento')
-                                    ->directory('accreditations')
-                                    ->acceptedFileTypes(['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
-                                    ->required()
-                                    ->columnSpan(2),
-                            ])
-                            ->defaultItems(1)
-                            ->columnSpanFull()
-                    ]),
+                Forms\Components\FileUpload::make('file')
+                    ->label('Documento')
+                    ->directory('accreditations')
+                    ->acceptedFileTypes(['zip', 'application/zip', 'application/x-zip', 'application/x-zip-compressed', 'rar', 'application/x-rar-compressed', 'application/pdf'])
+                    ->preserveFilenames()
+                    ->required()
+                    ->columnSpan(2)
+                    ->helperText('Só são permitidos arquivos com a extensão Zip e PDF.'),
             ]);
     }
 
@@ -103,9 +94,9 @@ class AccreditationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAccreditations::route('/'),
-            'create' => Pages\CreateAccreditation::route('/create'),
-            'edit' => Pages\EditAccreditation::route('/{record}/edit'),
+            'index' => Pages\ListAccreditationBands::route('/'),
+            'create' => Pages\CreateAccreditationBands::route('/create'),
+            'edit' => Pages\EditAccreditationBands::route('/{record}/edit'),
         ];
     }
 

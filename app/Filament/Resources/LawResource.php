@@ -2,28 +2,28 @@
 
 namespace App\Filament\Resources;
 
+use App\Models\Law;
 use Filament\Forms;
 use Filament\Tables;
 use Illuminate\Support\Str;
 use Filament\Resources\Form;
-use App\Models\Accreditation;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\LawResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\AccreditationResource\Pages;
-use App\Filament\Resources\AccreditationResource\RelationManagers;
+use App\Filament\Resources\LawResource\RelationManagers;
 
-class AccreditationResource extends Resource
+class LawResource extends Resource
 {
-    protected static ?string $model = Accreditation::class;
+    protected static ?string $model = Law::class;
 
-    public static ?string $label = 'Credenciamento Cultural';
-    public static ?string $pluralLabel = 'Credenciamento Cultural';
-    protected static ?string $navigationGroup = 'Cultura';
-    protected static ?int $navigationSort = 3;
+    public static ?string $label = 'Lei';
+    public static ?string $pluralLabel = 'Leis';
+    protected static ?string $navigationGroup = 'Leis';
+    protected static ?int $navigationSort = 1;
 
-    protected static ?string $navigationIcon = 'heroicon-o-identification';
+    protected static ?string $navigationIcon = 'heroicon-o-shield-check';
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -49,23 +49,6 @@ class AccreditationResource extends Resource
                     ->disableToolbarButtons(['codeBlock'])
                     ->columnSpanFull()
                     ->helperText('_Pode iserir imagens entre os parágrafos, basta arrastar a imagem do computador para o local onde quer que a imagem fique._'),
-                Forms\Components\Card::make()
-                    ->schema([
-                        Forms\Components\Repeater::make('image')
-                            ->label('Documentos')
-                            ->createItemButtonLabel('Adicionar nova imagem')
-                            ->relationship('medias')
-                            ->schema([
-                                Forms\Components\FileUpload::make('name')
-                                    ->label('Documento')
-                                    ->directory('accreditations')
-                                    ->acceptedFileTypes(['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
-                                    ->required()
-                                    ->columnSpan(2),
-                            ])
-                            ->defaultItems(1)
-                            ->columnSpanFull()
-                    ]),
             ]);
     }
 
@@ -73,13 +56,8 @@ class AccreditationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('title')
-                    ->label('Título')
-                    ->sortable()
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('id'),
+                Tables\Columns\TextColumn::make('title'),
             ])
             ->filters([
                 //
@@ -103,9 +81,9 @@ class AccreditationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAccreditations::route('/'),
-            'create' => Pages\CreateAccreditation::route('/create'),
-            'edit' => Pages\EditAccreditation::route('/{record}/edit'),
+            'index' => Pages\ListLaws::route('/'),
+            'create' => Pages\CreateLaw::route('/create'),
+            'edit' => Pages\EditLaw::route('/{record}/edit'),
         ];
     }
 

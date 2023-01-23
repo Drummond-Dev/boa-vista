@@ -49,12 +49,13 @@ class FilamentServiceProvider extends ServiceProvider
             }
 
             Filament::registerNavigationGroups([
-                'Prefeitura',
+                'Administrativo',
                 'Canal do Cidadão',
                 'Cultura',
+                'Leis',
                 'Notícias',
                 'Navegação',
-                'Administrativo',
+                'Prefeitura',
             ]);
         });
     }
