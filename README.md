@@ -7,19 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Sobre Prefeitura de Boa Vista
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Prefeitura de Boa Vista é um projeto que desenvolvo pela iProduce que tem como objectivo reformular o website da Prefeitura, criando uma área Administrativa que possam controlar todo o contêudo do website. Abaixo as técnologias utilizadas:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [Laravel](https://laravel.com/docs).
+- [Filament PHP](https://filamentphp.com/docs/2.x/admin/installation).
+- [Laravel Jetstream](https://jetstream.laravel.com/2.x/introduction.html).
+- [Laravel Livewire](https://laravel-livewire.com/docs/2.x/quickstart).
+- [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission/v5/introduction).
+- [Spatie Filament Markdown Editor](https://github.com/spatie/filament-markdown-editor).
+- [Pascale Beier CMS Filament Pages](https://github.com/pascalebeier/filament-pages).
 
 ## Learning Laravel
 
