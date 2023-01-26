@@ -2,28 +2,28 @@
 
 namespace App\Filament\Resources;
 
-use App\Models\Law;
 use Filament\Forms;
 use Filament\Tables;
+use App\Models\Legislation;
 use Illuminate\Support\Str;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\LawResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\LawResource\RelationManagers;
+use App\Filament\Resources\LegislationResource\Pages;
+use App\Filament\Resources\LegislationResource\RelationManagers;
 
-class LawResource extends Resource
+class LegislationResource extends Resource
 {
-    protected static ?string $model = Law::class;
+    protected static ?string $model = Legislation::class;
 
-    public static ?string $label = 'Lei';
-    public static ?string $pluralLabel = 'Leis';
+    public static ?string $label = 'Legislação';
+    public static ?string $pluralLabel = 'Legislações';
     protected static ?string $navigationGroup = 'Leis e Legislações';
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationIcon = 'heroicon-o-shield-check';
+    protected static ?string $navigationIcon = 'heroicon-o-library';
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -41,14 +41,13 @@ class LawResource extends Resource
                     ->disabled()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\MarkdownEditor::make('text')
-                    ->label('Texto')
+                Forms\Components\FileUpload::make('file')
                     ->required()
-                    ->fileAttachmentsVisibility('public')
-                    ->fileAttachmentsDirectory('culture')
-                    ->disableToolbarButtons(['codeBlock'])
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->preserveFilenames()
+                    ->directory('pdf')
                     ->columnSpanFull()
-                    ->helperText('_Pode iserir imagens entre os parágrafos, basta arrastar a imagem do computador para o local onde quer que a imagem fique._'),
+                    ->helperText('_Só são permitidos arquivos PDF._'),
             ]);
     }
 
@@ -56,8 +55,13 @@ class LawResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
-                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('title')
+                    ->label('Títulos')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //
@@ -81,9 +85,9 @@ class LawResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLaws::route('/'),
-            'create' => Pages\CreateLaw::route('/create'),
-            'edit' => Pages\EditLaw::route('/{record}/edit'),
+            'index' => Pages\ListLegislations::route('/'),
+            'create' => Pages\CreateLegislation::route('/create'),
+            'edit' => Pages\EditLegislation::route('/{record}/edit'),
         ];
     }
 

@@ -2,30 +2,28 @@
 
 namespace App\Filament\Resources;
 
-use App\Models\Law;
 use Filament\Forms;
 use Filament\Tables;
 use Illuminate\Support\Str;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
+use App\Models\HouseholdWaste;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\LawResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\LawResource\RelationManagers;
+use App\Filament\Resources\HouseholdWasteResource\Pages;
+use App\Filament\Resources\HouseholdWasteResource\RelationManagers;
 
-class LawResource extends Resource
+class HouseholdWasteResource extends Resource
 {
-    protected static ?string $model = Law::class;
+    protected static ?string $model = HouseholdWaste::class;
 
-    public static ?string $label = 'Lei';
-    public static ?string $pluralLabel = 'Leis';
-    protected static ?string $navigationGroup = 'Leis e Legislações';
-    protected static ?int $navigationSort = 1;
+    public static ?string $label = 'Resíduo Domiciliar';
+    public static ?string $pluralLabel = 'Resíduos Domiciliares';
+    protected static ?string $navigationGroup = 'Canal do Cidadão';
+    protected static ?int $navigationSort = 6;
 
-    protected static ?string $navigationIcon = 'heroicon-o-shield-check';
-
-    protected static ?string $recordTitleAttribute = 'title';
+    protected static ?string $navigationIcon = 'heroicon-o-home';
 
     public static function form(Form $form): Form
     {
@@ -38,14 +36,14 @@ class LawResource extends Resource
                     ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state)))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
-                    ->disabled()
                     ->required()
+                    ->disabled()
                     ->maxLength(255),
                 Forms\Components\MarkdownEditor::make('text')
                     ->label('Texto')
                     ->required()
                     ->fileAttachmentsVisibility('public')
-                    ->fileAttachmentsDirectory('culture')
+                    ->fileAttachmentsDirectory('waste')
                     ->disableToolbarButtons(['codeBlock'])
                     ->columnSpanFull()
                     ->helperText('_Pode iserir imagens entre os parágrafos, basta arrastar a imagem do computador para o local onde quer que a imagem fique._'),
@@ -81,9 +79,9 @@ class LawResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLaws::route('/'),
-            'create' => Pages\CreateLaw::route('/create'),
-            'edit' => Pages\EditLaw::route('/{record}/edit'),
+            'index' => Pages\ListHouseholdWastes::route('/'),
+            'create' => Pages\CreateHouseholdWaste::route('/create'),
+            'edit' => Pages\EditHouseholdWaste::route('/{record}/edit'),
         ];
     }
 
