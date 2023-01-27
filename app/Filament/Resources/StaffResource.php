@@ -53,14 +53,17 @@ class StaffResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Foto')
+                    ->toggleable()
                     ->width(50)
                     ->height(50),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nome')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('responsibility.name')
                     ->label('Cargo')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
             ])

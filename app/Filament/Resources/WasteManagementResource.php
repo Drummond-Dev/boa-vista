@@ -74,15 +74,19 @@ class WasteManagementResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('icon')
-                    ->label('Ícones'),
+                    ->label('Ícones')
+                    ->toggleable(),
                 Tables\Columns\ImageColumn::make('image')
-                    ->label('Imagens'),
+                    ->label('Imagens')
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Títulos')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('sort_order')
                     ->label('Ordem')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
             ])

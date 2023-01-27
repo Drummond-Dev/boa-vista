@@ -52,11 +52,13 @@ class BusScheduleResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')
+                    ->label('Título')
+                    ->toggleable()
                     ->sortable()
-                    ->searchable()
-                    ->label('Título'),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('sort_order')
                     ->label('Ordem')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
             ])

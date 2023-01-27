@@ -63,9 +63,11 @@ class DepartmentResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Nome'),
+                    ->label('Nome')
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('area')
-                    ->label('Área'),
+                    ->label('Área')
+                    ->toggleable(),
                 // Tables\Columns\TextColumn::make('staffs.name'),
             ])
             ->filters([

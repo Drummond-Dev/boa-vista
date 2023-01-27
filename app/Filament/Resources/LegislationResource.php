@@ -57,9 +57,11 @@ class LegislationResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID')
+                    ->toggleable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Títulos')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
             ])

@@ -57,17 +57,21 @@ class MenuResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título')
+                    ->toggleable()
                     ->wrap()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('parent.title')
+                    ->label('Parente')
+                    ->toggleable()
                     ->sortable()
-                    ->searchable()
-                    ->label('Parente'),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('sort_order')
                     ->label('Ordem')
+                    ->toggleable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('slug')
+                    ->toggleable()
                     ->words(5)
                     ->wrap(),
             ])

@@ -84,26 +84,31 @@ class NewspaperResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Imagem')
+                    ->toggleable()
                     ->width(50)
                     ->height(50),
                 Tables\Columns\TextColumn::make('categories.name')
                     ->label('Categorias')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título')
+                    ->toggleable()
                     ->words(10)
                     ->wrap()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('resume')
                     ->label('Resumo')
+                    ->toggleable()
                     ->words(20)
                     ->wrap()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('author')
                     ->label('Autor')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
             ])

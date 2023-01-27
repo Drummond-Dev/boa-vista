@@ -73,28 +73,39 @@ class UserResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('profile_photo_path')
                     ->label('Foto')
+                    ->toggleable()
                     ->width(50)
                     ->height(50),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nomes')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_admin')
+                    ->label('Admin')
+                    ->toggleable()
                     ->sortable()
                     ->searchable()
                     ->boolean(),
                 Tables\Columns\TextColumn::make('roles.name')
                     ->label('Regras')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
+                    ->label('Email')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('deleted_at')
+                    ->label('Excluído em:')
+                    ->toggleable()
                     ->dateTime('d-M-Y')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Criado em:')
+                    ->toggleable()
                     ->dateTime('d-M-Y')
                     ->sortable()
                     ->searchable(),

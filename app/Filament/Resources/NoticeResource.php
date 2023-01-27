@@ -43,9 +43,17 @@ class NoticeResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
-                Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID')
+                    ->toggleable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('title')
+                    ->label('Título')
+                    ->toggleable()
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('slug')
+                    ->toggleable(),
             ])
             ->filters([
                 //

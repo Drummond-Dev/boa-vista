@@ -54,8 +54,15 @@ class HouseholdWasteResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
-                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID')
+                    ->toggleable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('title')
+                    ->label('Título')
+                    ->toggleable()
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //

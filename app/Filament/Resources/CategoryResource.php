@@ -52,13 +52,16 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
+                    ->toggleable()
                     ->sortable()
-                    ->searchable()
-                    ->label('Nome'),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
-                    ->label('Slug'),
+                    ->label('Slug')
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('parent.name')
-                    ->label('Parente'),
+                    ->label('Parente')
+                    ->toggleable(),
             ])
             ->filters([
                 //

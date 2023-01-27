@@ -55,11 +55,13 @@ class CultureResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
                 // Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\TextColumn::make('text')
                     ->label('Texto')
+                    ->toggleable()
                     ->words(10),
             ])
             ->filters([

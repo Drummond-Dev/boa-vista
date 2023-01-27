@@ -59,15 +59,20 @@ class ContactResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('staff.name')
-                    ->label('Nome'),
+                    ->label('Nome')
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('phone1')
-                    ->label('Telefone'),
+                    ->label('Telefone')
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('phone2')
-                    ->label('Telefone'),
+                    ->label('Telefone')
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('email')
-                    ->label('Email'),
+                    ->label('Email')
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('address')
                     ->label('Endereço')
+                    ->toggleable()
                     ->words(10)
                     ->wrap(),
             ])

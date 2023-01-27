@@ -42,12 +42,18 @@ class ResponsibilityResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID')
+                    ->toggleable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nome')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_active')
                     ->label('Estado')
+                    ->toggleable()
                     ->trueIcon('heroicon-o-eye')
                     ->falseIcon('heroicon-o-eye-off')
                     ->boolean(),

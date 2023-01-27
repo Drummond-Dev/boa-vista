@@ -77,11 +77,14 @@ class CampaignResource extends Resource
                 //     ->height(50),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título')
+                    ->toggleable()
                     ->words(10)
                     ->wrap()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('sort_order')
+                    ->label('Ordem')
+                    ->toggleable()
                     ->sortable(),
             ])
             ->filters([

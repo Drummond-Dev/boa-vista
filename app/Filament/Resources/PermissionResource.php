@@ -42,13 +42,17 @@ class PermissionResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')
+                    ->label('ID')
+                    ->toggleable()
                     ->sortable(),
                 TextColumn::make('name')
                     ->label('Nome')
+                    ->toggleable()
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->label('Criado em:')
+                    ->toggleable()
                     ->dateTime('d-M-Y')
                     ->sortable()
                     ->searchable(),
