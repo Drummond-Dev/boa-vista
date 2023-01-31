@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class AccreditationBands extends Model
+class ConstructionWaste extends Model
 {
     use HasFactory;
 
@@ -14,14 +14,13 @@ class AccreditationBands extends Model
         'title',
         'slug',
         'text',
-        'file',
     ];
 
     public function medias(): HasMany
     {
         return $this->hasMany(
-            related: AccreditationMedia::class,
-            foreignKey: 'accreditation_media_id',
+            related: ConstructionWasteMedia::class,
+            foreignKey: 'construction_waste_id',
         );
     }
 }
