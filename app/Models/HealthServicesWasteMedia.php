@@ -6,22 +6,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class ConstructionWasteMedia extends Model
+class HealthServicesWasteMedia extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id',
-        'construction_waste_id',
+        'health_services_waste_id',
         'file',
         'file_name',
     ];
 
-    public function construction(): BelongsTo
+    public function health(): BelongsTo
     {
         return $this->belongsTo(
-            related: ConstructionWaste::class,
-            foreignKey: 'construction_waste_id',
+            related: HealthServicesWaste::class,
+            foreignKey: 'health_services_waste_id',
         );
     }
 }

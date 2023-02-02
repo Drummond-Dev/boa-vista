@@ -4,26 +4,26 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Notice;
 use Illuminate\Support\Str;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use App\Models\HealthServicesWaste;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\NoticeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\NoticeResource\RelationManagers;
+use App\Filament\Resources\HealthServicesWasteResource\Pages;
+use App\Filament\Resources\HealthServicesWasteResource\RelationManagers;
 
-class NoticeResource extends Resource
+class HealthServicesWasteResource extends Resource
 {
-    protected static ?string $model = Notice::class;
+    protected static ?string $model = HealthServicesWaste::class;
 
-    public static ?string $label = 'Edital';
-    public static ?string $pluralLabel = 'Editais';
-    protected static ?string $navigationGroup = 'Cultura';
-    protected static ?int $navigationSort = 6;
+    public static ?string $label = 'Resíduo de Serviço de Saúde';
+    public static ?string $pluralLabel = 'Resíduos de Serviços de Saúde';
+    protected static ?string $navigationGroup = 'Canal do Cidadão';
+    protected static ?int $navigationSort = 8;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'far-hospital';
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -39,8 +39,7 @@ class NoticeResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->disabled()
-                    ->required()
-                    ->maxLength(255),
+                    ->required(),
                 Forms\Components\MarkdownEditor::make('text')
                     ->label('Texto')
                     ->required()
@@ -49,8 +48,8 @@ class NoticeResource extends Resource
                 Forms\Components\Card::make()
                     ->schema([
                         Forms\Components\Repeater::make('file')
-                            ->label('Documentos')
-                            ->createItemButtonLabel('Adicionar novo documento')
+                            ->label('Arquivos')
+                            ->createItemButtonLabel('Adicionar novo arquivo')
                             ->relationship('medias')
                             ->schema([
                                 Forms\Components\TextInput::make('file_name')
@@ -65,11 +64,13 @@ class NoticeResource extends Resource
                                         'application/pdf',
                                         'application/msword',
                                         'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                                        'application/vnd.ms-excel',
+                                        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                                     ])
                                     ->preserveFilenames()
                                     ->required()
                                     ->columnSpan(2)
-                                    ->helperText('_Só são permitidos arquivos com a extensão PDF e Doc._'),
+                                    ->helperText('_Só são permitidos arquivos com a extensão PDF, Doc e XLS._'),
                             ])
                             ->defaultItems(1)
                             ->columnSpanFull()
@@ -81,13 +82,12 @@ class NoticeResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->toggleable()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('id'),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título')
                     ->toggleable()
+                    ->words(10)
+                    ->wrap()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
@@ -119,9 +119,9 @@ class NoticeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListNotices::route('/'),
-            'create' => Pages\CreateNotice::route('/create'),
-            'edit' => Pages\EditNotice::route('/{record}/edit'),
+            'index' => Pages\ListHealthServicesWastes::route('/'),
+            'create' => Pages\CreateHealthServicesWaste::route('/create'),
+            'edit' => Pages\EditHealthServicesWaste::route('/{record}/edit'),
         ];
     }
 

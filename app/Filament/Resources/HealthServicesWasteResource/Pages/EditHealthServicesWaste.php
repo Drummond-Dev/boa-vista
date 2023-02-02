@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\NoticeResource\Pages;
+namespace App\Filament\Resources\HealthServicesWasteResource\Pages;
 
-use App\Filament\Resources\NoticeResource;
+use App\Filament\Resources\HealthServicesWasteResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditNotice extends EditRecord
+class EditHealthServicesWaste extends EditRecord
 {
-    protected static string $resource = NoticeResource::class;
+    protected static string $resource = HealthServicesWasteResource::class;
 
     protected function getActions(): array
     {

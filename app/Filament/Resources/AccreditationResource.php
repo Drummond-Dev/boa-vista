@@ -82,6 +82,10 @@ class AccreditationResource extends Resource
                     ->toggleable()
                     ->sortable()
                     ->searchable(),
+                Tables\Columns\TextColumn::make('medias_count')
+                    ->label('Nº de Arquivos')
+                    ->counts('medias')
+                    ->toggleable()
             ])
             ->filters([
                 //

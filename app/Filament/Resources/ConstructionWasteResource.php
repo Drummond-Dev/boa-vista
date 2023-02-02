@@ -55,6 +55,7 @@ class ConstructionWasteResource extends Resource
                                 Forms\Components\TextInput::make('file_name')
                                     ->label('Título')
                                     ->required()
+                                    ->columnSpan(2)
                                     ->maxLength(255),
                                 Forms\Components\FileUpload::make('file')
                                     ->label('Arquivo')
@@ -91,6 +92,10 @@ class ConstructionWasteResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->toggleable(),
+                Tables\Columns\TextColumn::make('medias_count')
+                    ->label('Nº de Arquivos')
+                    ->counts('medias')
+                    ->toggleable()
             ])
             ->filters([
                 //

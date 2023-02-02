@@ -71,10 +71,6 @@ class CampaignResource extends Resource
     {
         return $table
             ->columns([
-                // Tables\Columns\ImageColumn::make('campaign_media.name')
-                //     ->label('Imagem')
-                //     ->width(50)
-                //     ->height(50),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título')
                     ->toggleable()
@@ -86,6 +82,10 @@ class CampaignResource extends Resource
                     ->label('Ordem')
                     ->toggleable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('medias_count')
+                    ->label('Nº de Imagens')
+                    ->counts('medias')
+                    ->toggleable()
             ])
             ->filters([
                 //

@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Notice extends Model
+class HealthServicesWaste extends Model
 {
     use HasFactory;
 
@@ -19,8 +19,8 @@ class Notice extends Model
     public function medias(): HasMany
     {
         return $this->hasMany(
-            related: NoticeMedia::class,
-            foreignKey: 'notice_id',
+            related: HealthServicesWasteMedia::class,
+            foreignKey: 'health_services_waste_id',
         );
     }
 }
