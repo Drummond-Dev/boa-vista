@@ -4,26 +4,26 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Legislation;
 use Illuminate\Support\Str;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use App\Models\WasteManagementPlan;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\LegislationResource\Pages;
-use App\Filament\Resources\LegislationResource\RelationManagers;
+use App\Filament\Resources\WasteManagementPlanResource\Pages;
+use App\Filament\Resources\WasteManagementPlanResource\RelationManagers;
 
-class LegislationResource extends Resource
+class WasteManagementPlanResource extends Resource
 {
-    protected static ?string $model = Legislation::class;
+    protected static ?string $model = WasteManagementPlan::class;
 
-    public static ?string $label = 'Legislação';
-    public static ?string $pluralLabel = 'Legislações';
-    protected static ?string $navigationGroup = 'Leis e Legislações';
-    protected static ?int $navigationSort = 2;
+    public static ?string $label = 'Plano de Gerenciamento de Resíduo';
+    public static ?string $pluralLabel = 'Plano de Gerenciamento de Resíduos';
+    protected static ?string $navigationGroup = 'Canal do Cidadão';
+    protected static ?int $navigationSort = 9;
 
-    protected static ?string $navigationIcon = 'heroicon-o-library';
+    protected static ?string $navigationIcon = 'heroicon-o-presentation-chart-line';
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -38,17 +38,14 @@ class LegislationResource extends Resource
                     ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state)))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
+                    ->required()
                     ->disabled()
-                    ->required()
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('file')
+                Forms\Components\MarkdownEditor::make('text')
+                    ->label('Texto')
                     ->required()
-                    ->acceptedFileTypes(['application/pdf'])
-                    ->preserveFilenames()
-                    ->directory('pdf')
-                    ->columnSpanFull()
-                    ->enableOpen()
-                    ->helperText('_Só são permitidos arquivos PDF._'),
+                    ->disableToolbarButtons(['codeBlock', 'attachFiles', 'link', 'strike'])
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -56,12 +53,13 @@ class LegislationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->toggleable()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Títulos')
+                    ->toggleable()
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('slug')
+                    ->label('Slug')
                     ->toggleable()
                     ->sortable()
                     ->searchable(),
@@ -88,9 +86,9 @@ class LegislationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLegislations::route('/'),
-            'create' => Pages\CreateLegislation::route('/create'),
-            'edit' => Pages\EditLegislation::route('/{record}/edit'),
+            'index' => Pages\ListWasteManagementPlans::route('/'),
+            'create' => Pages\CreateWasteManagementPlan::route('/create'),
+            'edit' => Pages\EditWasteManagementPlan::route('/{record}/edit'),
         ];
     }
 

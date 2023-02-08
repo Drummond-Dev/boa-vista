@@ -52,6 +52,7 @@ class CampaignResource extends Resource
                                     ->directory('campaigns')
                                     ->image()
                                     ->required()
+                                    ->enableOpen()
                                     ->columnSpan(2),
                             ])
                             ->defaultItems(2)

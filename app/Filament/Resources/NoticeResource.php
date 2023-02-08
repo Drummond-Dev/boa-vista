@@ -69,6 +69,7 @@ class NoticeResource extends Resource
                                     ->preserveFilenames()
                                     ->required()
                                     ->columnSpan(2)
+                                    ->enableOpen()
                                     ->helperText('_Só são permitidos arquivos com a extensão PDF e Doc._'),
                             ])
                             ->defaultItems(1)

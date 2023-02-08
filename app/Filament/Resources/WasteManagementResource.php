@@ -47,6 +47,7 @@ class WasteManagementResource extends Resource
                     ->image()
                     ->preserveFilenames()
                     ->directory('waste')
+                    ->enableOpen()
                     ->helperText('_Só são permitidos imagens._'),
                 Forms\Components\FileUpload::make('icon')
                     ->label('Ícone')
@@ -54,6 +55,7 @@ class WasteManagementResource extends Resource
                     ->acceptedFileTypes(['image/svg+xml'])
                     ->preserveFilenames()
                     ->directory('icons')
+                    ->enableOpen()
                     ->helperText('_Só são permitidos arquivos SVG._'),
                 Forms\Components\MarkdownEditor::make('text')
                     ->label('Texto')

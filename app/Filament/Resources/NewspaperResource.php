@@ -59,6 +59,7 @@ class NewspaperResource extends Resource
                     ->image()
                     ->required()
                     ->columnSpan(2)
+                    ->enableOpen()
                     ->helperText('_Imagem principal da notícia, essa imagem irá aparecer no topo da página da notícia e também no card na página principal das notícias._'),
                 Forms\Components\Textarea::make('resume')
                     ->label('Resumo')

@@ -68,6 +68,7 @@ class HealthServicesWasteResource extends Resource
                                         'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                                     ])
                                     ->preserveFilenames()
+                                    ->enableOpen()
                                     ->required()
                                     ->columnSpan(2)
                                     ->helperText('_Só são permitidos arquivos com a extensão PDF, Doc e XLS._'),

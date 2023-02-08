@@ -62,10 +62,10 @@ class ContactResource extends Resource
                     ->label('Nome')
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('phone1')
-                    ->label('Telefone')
+                    ->label('Telefone #1')
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('phone2')
-                    ->label('Telefone')
+                    ->label('Telefone #2')
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('email')
                     ->label('Email')

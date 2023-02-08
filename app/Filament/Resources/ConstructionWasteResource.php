@@ -70,6 +70,7 @@ class ConstructionWasteResource extends Resource
                                     ->preserveFilenames()
                                     ->required()
                                     ->columnSpan(2)
+                                    ->enableOpen()
                                     ->helperText('_Só são permitidos arquivos com a extensão PDF, Doc e XLS._'),
                             ])
                             ->defaultItems(1)

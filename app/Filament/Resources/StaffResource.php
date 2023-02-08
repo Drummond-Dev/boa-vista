@@ -43,6 +43,7 @@ class StaffResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->label('Foto')
                     ->directory('staff')
+                    ->enableOpen()
                     ->image(),
             ]);
     }

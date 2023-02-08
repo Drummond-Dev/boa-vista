@@ -56,6 +56,7 @@ class AccreditationBandsResource extends Resource
                     ->preserveFilenames()
                     ->required()
                     ->columnSpan(2)
+                    ->enableOpen()
                     ->helperText('Só são permitidos arquivos com a extensão Zip e PDF.'),
             ]);
     }

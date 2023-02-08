@@ -61,6 +61,7 @@ class AccreditationResource extends Resource
                                     ->directory('accreditations')
                                     ->acceptedFileTypes(['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
                                     ->required()
+                                    ->enableOpen()
                                     ->columnSpan(2),
                             ])
                             ->defaultItems(1)
