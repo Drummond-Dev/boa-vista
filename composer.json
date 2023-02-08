@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "beier/filament-pages": "^0.2.0",
+        "awcodes/filament-curator": "^2.1",
         "filament/filament": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
@@ -16,7 +16,8 @@
         "livewire/livewire": "^2.5",
         "owenvoke/blade-fontawesome": "^2.1",
         "spatie/filament-markdown-editor": "^1.0",
-        "spatie/laravel-permission": "^5.7"
+        "spatie/laravel-permission": "^5.7",
+        "z3d0x/filament-fabricator": "^1.0"
     },
     "require-dev": {
         "doctrine/dbal": "^3.5",
