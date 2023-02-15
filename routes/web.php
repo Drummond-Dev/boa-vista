@@ -18,8 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{filamentPage}', [FilamentPageController::class, 'show']);
-
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),

@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Awcodes\Curator\Facades\Curator;
 use Illuminate\Support\ServiceProvider;
+use Z3d0X\FilamentFabricator\Resources\PageResource;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        PageResource::navigationGroup('Páginas');
+        PageResource::navigationIcon('heroicon-o-template');
+        // Curator::shouldRegisterNavigation('Páginas');
     }
 }
