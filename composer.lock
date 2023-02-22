@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58f78e2ce710d735f908b815b226d188",
+    "content-hash": "c739d4397130c808efe49322b32dac6e",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -76,21 +76,21 @@
         },
         {
             "name": "awcodes/filament-curator",
-            "version": "v2.1.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/awcodes/filament-curator.git",
-                "reference": "49b15aba021353c080b8460dfb8cf536243b1428"
+                "reference": "50d409b93da249ec6f320985de567147946e4e4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/awcodes/filament-curator/zipball/49b15aba021353c080b8460dfb8cf536243b1428",
-                "reference": "49b15aba021353c080b8460dfb8cf536243b1428",
+                "url": "https://api.github.com/repos/awcodes/filament-curator/zipball/50d409b93da249ec6f320985de567147946e4e4a",
+                "reference": "50d409b93da249ec6f320985de567147946e4e4a",
                 "shasum": ""
             },
             "require": {
                 "filament/filament": "^2.0",
-                "illuminate/contracts": "^9.0",
+                "illuminate/contracts": "^9.0|^10.0",
                 "intervention/image": "^2.7",
                 "league/glide-laravel": "^1.0",
                 "php": "^8.0",
@@ -98,9 +98,9 @@
             },
             "require-dev": {
                 "laravel/pint": "^1.0",
-                "nunomaduro/collision": "^6.0",
+                "nunomaduro/collision": "^6.0|^7.0",
                 "nunomaduro/larastan": "^2.0.1",
-                "orchestra/testbench": "^7.0",
+                "orchestra/testbench": "^7.0|^8.0",
                 "pestphp/pest": "^1.21",
                 "pestphp/pest-plugin-laravel": "^1.1",
                 "pestphp/pest-plugin-livewire": "^1.0",
@@ -108,7 +108,7 @@
                 "phpstan/extension-installer": "^1.1",
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9.5",
+                "phpunit/phpunit": "^9.5|^10.0",
                 "spatie/laravel-ray": "^1.26"
             },
             "type": "library",
@@ -149,7 +149,7 @@
             ],
             "support": {
                 "issues": "https://github.com/awcodes/filament-curator/issues",
-                "source": "https://github.com/awcodes/filament-curator/tree/v2.1.0"
+                "source": "https://github.com/awcodes/filament-curator/tree/v2.2.1"
             },
             "funding": [
                 {
@@ -157,7 +157,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-08T18:34:03+00:00"
+            "time": "2023-02-17T14:22:54+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -2742,16 +2742,16 @@
         },
         {
             "name": "league/glide",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/glide.git",
-                "reference": "bff5b0fe2fd26b2fde2d6958715fde313887d79d"
+                "reference": "446b1fc9f15101db52e8ddb7bec8cb16e814b244"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/glide/zipball/bff5b0fe2fd26b2fde2d6958715fde313887d79d",
-                "reference": "bff5b0fe2fd26b2fde2d6958715fde313887d79d",
+                "url": "https://api.github.com/repos/thephpleague/glide/zipball/446b1fc9f15101db52e8ddb7bec8cb16e814b244",
+                "reference": "446b1fc9f15101db52e8ddb7bec8cb16e814b244",
                 "shasum": ""
             },
             "require": {
@@ -2801,9 +2801,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/glide/issues",
-                "source": "https://github.com/thephpleague/glide/tree/2.2.2"
+                "source": "https://github.com/thephpleague/glide/tree/2.2.3"
             },
-            "time": "2022-02-21T07:40:55+00:00"
+            "time": "2023-02-14T06:15:26+00:00"
         },
         {
             "name": "league/glide-laravel",

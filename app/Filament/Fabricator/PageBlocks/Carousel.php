@@ -13,13 +13,16 @@ class Carousel extends PageBlock
     public static function getBlockSchema(): Block
     {
         return Block::make('carousel')
+            ->label('Carrossel')
             ->schema([
                 Repeater::make('items')
                     ->schema([
-                        TextInput::make('title'),
+                        TextInput::make('title')
+                            ->required(),
                         CuratorPicker::make('image')
                             ->preserveFilenames()
                             ->directory('carousel')
+                            ->required(),
                     ])
                     ->defaultItems(3)
                     ->columnSpanFull()
