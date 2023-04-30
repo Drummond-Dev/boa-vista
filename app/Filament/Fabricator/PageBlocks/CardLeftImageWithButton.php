@@ -14,7 +14,7 @@ class CardLeftImageWithButton extends PageBlock
     public static function getBlockSchema(): Block
     {
         return Block::make('card-left-image-with-button')
-            ->label('Card (com Imagem esquerda e Botão')
+            ->label('Card (com Imagem esquerda e Botão)')
             ->schema([
                 Repeater::make('items')
                     ->schema([

@@ -19,6 +19,11 @@ class Carousel extends PageBlock
                     ->schema([
                         TextInput::make('title')
                             ->required(),
+                        TextInput::make('link')
+                            ->label('Link')
+                            ->url()
+                            ->prefix('https://')
+                            ->required(),
                         CuratorPicker::make('image')
                             ->preserveFilenames()
                             ->directory('carousel')

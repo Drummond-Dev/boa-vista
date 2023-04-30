@@ -991,12 +991,12 @@
             "version": "v2.16.59",
             "source": {
                 "type": "git",
-                "url": "https://github.com/filamentphp/admin.git",
+                "url": "https://github.com/filamentphp/app.git",
                 "reference": "3b3e6cff81aa34900b78f1fd1ee7b9f52f146c6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/admin/zipball/3b3e6cff81aa34900b78f1fd1ee7b9f52f146c6d",
+                "url": "https://api.github.com/repos/filamentphp/app/zipball/3b3e6cff81aa34900b78f1fd1ee7b9f52f146c6d",
                 "reference": "3b3e6cff81aa34900b78f1fd1ee7b9f52f146c6d",
                 "shasum": ""
             },

@@ -14,7 +14,7 @@ class CardTopImageWithButton extends PageBlock
     public static function getBlockSchema(): Block
     {
         return Block::make('card-top-image-with-button')
-            ->label('Card (com Imagem e Botão')
+            ->label('Card (com Imagem e Botão)')
             ->schema([
                 Repeater::make('items')
                     ->schema([
