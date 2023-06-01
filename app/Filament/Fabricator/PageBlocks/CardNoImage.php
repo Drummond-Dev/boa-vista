@@ -31,8 +31,10 @@ class CardNoImage extends PageBlock
                             ->prefix('https://')
                             ->required(),
                     ])
+                    ->itemLabel(fn (array $state): ?string => $state['title'] ?? null)
                     ->defaultItems(1)
                     ->columnSpanFull()
+                    ->collapsible()
             ]);
     }
 

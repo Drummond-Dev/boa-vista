@@ -29,8 +29,10 @@ class Carousel extends PageBlock
                             ->directory('carousel')
                             ->required(),
                     ])
+                    ->itemLabel(fn (array $state): ?string => $state['title'] ?? null)
                     ->defaultItems(3)
                     ->columnSpanFull()
+                    ->collapsible()
             ]);
     }
 
